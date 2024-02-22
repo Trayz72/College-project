@@ -1,0 +1,129 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+/* Admin-container */
+.table-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.link {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 12px;
+  background-color: rgb(68,114,196);
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.link:hover {
+  background-color: rgb(42, 83, 154);
+}
+
+
+.table {
+  width: 60%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #d4d4d4;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: rgb(68,114,196);
+  color: white;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.action-buttons button {
+  margin-right: 5px;
+}
+
+.delete-btn {
+  margin-left: 7px;
+  padding: 10px;
+  background-color: rgb(68,114,196);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* create-admin */
+
+.form-container {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #b6b3b3;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.submit-btn {
+  padding: 10px;
+  background-color: rgb(68,114,196);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  background-color: rgb(42, 83, 154);
+}
