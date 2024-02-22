@@ -4,8 +4,9 @@
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: 'Arial', sans-serif;
+html,
+body {
+  font-family: "Arial", sans-serif;
   width: 100%;
   height: 100%;
 }
@@ -20,13 +21,12 @@ html, body {
   gap: 20px;
 }
 
-
 .link {
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
   padding: 10px 12px;
-  background-color: rgb(68,114,196);
+  background-color: rgb(68, 114, 196);
   text-decoration: none;
   border: none;
   border-radius: 6px;
@@ -37,20 +37,20 @@ html, body {
   background-color: rgb(42, 83, 154);
 }
 
-
 .table {
   width: 60%;
   border-collapse: collapse;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   border: 1px solid #d4d4d4;
   padding: 8px;
   text-align: left;
 }
 
 .table th {
-  background-color: rgb(68,114,196);
+  background-color: rgb(68, 114, 196);
   color: white;
 }
 
@@ -69,7 +69,7 @@ html, body {
 .delete-btn {
   margin-left: 7px;
   padding: 10px;
-  background-color: rgb(68,114,196);
+  background-color: rgb(68, 114, 196);
   color: white;
   text-decoration: none;
   border: none;
@@ -115,7 +115,7 @@ input {
 
 .submit-btn {
   padding: 10px;
-  background-color: rgb(68,114,196);
+  background-color: rgb(68, 114, 196);
   color: white;
   border: none;
   border-radius: 3px;
@@ -126,4 +126,38 @@ input {
 
 .submit-btn:hover {
   background-color: rgb(42, 83, 154);
+}
+
+/* login form*/
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  width: 300px; /* Adjust the width as needed */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Register Form*/
+
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registration-box {
+  width: 300px; /* Adjust the width as needed */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

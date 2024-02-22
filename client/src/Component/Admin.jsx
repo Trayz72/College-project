@@ -7,7 +7,7 @@ export const Admin = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3030")
+      .get("http://localhost:3030/admin")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -21,35 +21,43 @@ export const Admin = () => {
 
   return (
     <div className="table-container">
-        <Link to="/create" className="link">
-          Create
-        </Link>
+      <Link to="/create" className="link">
+        Create
+      </Link>
       {data.length !== 0 ? (
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>AdminName</th>
-                <th>password</th>
-                <th>Action</th>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>AdminName</th>
+              <th>password</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item, index) => (
+              <tr
+                key={index}
+                className={index % 2 === 0 ? "even-row" : "odd-row"}
+              >
+                <td>{item.Admin_Id}</td>
+                <td>{item.User_Name}</td>
+                <td>{item.Password}</td>
+                <td className="action-buttons">
+                  <Link className="link" to={`/update/${item.Admin_Id}`}>
+                    update
+                  </Link>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(item.Admin_Id)}
+                  >
+                    delete
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {data.map((item, index) => (
-                <tr key={index} className={index % 2 === 0 ? "even-row" : "odd-row"}>
-                  <td>{item.Admin_Id}</td>
-                  <td>{item.User_Name}</td>
-                  <td>{item.Password}</td>
-                  <td className="action-buttons">
-                    <Link className="link" to={`/update/${item.Admin_Id}`}>update</Link>
-                    <button className="delete-btn" onClick={() => handleDelete(item.Admin_Id)}>
-                      delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+            ))}
+          </tbody>
+        </table>
       ) : (
         <h2>No records available</h2>
       )}

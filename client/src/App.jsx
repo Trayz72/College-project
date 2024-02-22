@@ -8,13 +8,23 @@ import { UpdateState } from "./Component/UpdateState";
 import { CreateCity } from "./Component/CreateCity";
 import { City } from "./Component/City";
 import { CityUpdate } from "./Component/CityUpdate";
+import Visitor from "./UserComponent/Visitor";
+import Aboutus from "./UserComponent/Aboutus";
+import Login from "./UserComponent/Login";
+import Register from "./UserComponent/Register";
+import Home from "./UserComponent/Home";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Admin />}></Route>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/" element={<Visitor />}></Route>
+          <Route path="/aboutus" element={<Aboutus />}></Route>
+          <Route path="/admin" element={<Admin />}></Route>
           <Route path="/create" element={<CreateAdmin />}></Route>
           <Route path="/update/:id" element={<UpdateAdmin />}></Route>
           <Route path="/state" element={<State />}></Route>

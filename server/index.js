@@ -3,12 +3,13 @@ const cors = require("cors");
 const adminController = require("./controllers/adminController");
 const stateController = require("./controllers/stateController");
 const cityController = require("./controllers/cityController");
+const loginController = require("./controllers/loginController");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", adminController.getAllAdmins);
+app.get("/admin", adminController.getAllAdmins);
 app.post("/create", adminController.createAdmin);
 app.put("/update/:id", adminController.updateAdmin);
 app.delete("/delete/:id", adminController.deleteAdmin);
@@ -25,6 +26,9 @@ app.get("/getAllCities", cityController.getAllCities);
 app.delete("/deleteCity/:id", cityController.deleteCity);
 app.put("/updateCity/:id", cityController.updateCity);
 app.get("/getCitiesRecord/:id", cityController.getCitiesRecord);
+
+app.post("/login", loginController.login);
+app.post("/register", loginController.register);
 
 app.listen(3030, () => {
   console.log("Running");
