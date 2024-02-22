@@ -7,7 +7,7 @@ export const Admin = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3030/admin")
+      .get("http://localhost:3030/alladmins")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);

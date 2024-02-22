@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/admin", adminController.getAllAdmins);
+app.get("/alladmins", adminController.getAllAdmins);
 app.post("/create", adminController.createAdmin);
 app.put("/update/:id", adminController.updateAdmin);
 app.delete("/delete/:id", adminController.deleteAdmin);

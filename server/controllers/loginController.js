@@ -21,17 +21,28 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
   const { username, password } = req.body;
 
-  const sql = "SELECT * FROM User_Account WHERE Username = ? AND Password = ?";
-  const values = [username, password];
+  const adminSql =
+    "SELECT * FROM Admin_Table WHERE User_Name = ? AND Password = ?";
+  const userSql =
+    "SELECT * FROM User_Account WHERE Username = ? AND Password = ?";
 
-  db.query(sql, values, (err, result) => {
-    if (err) {
-      console.error("Error logging in:", err);
+  db.query(adminSql, [username, password], (adminErr, adminResult) => {
+    if (adminErr) {
+      console.error("Error logging in as admin:", adminErr);
       res.status(500).json({ error: "Internal Server Error" });
-    } else if (result.length > 0) {
-      res.json({ message: "Login successful" });
+    } else if (adminResult.length > 0) {
+      res.json({ message: "Admin login successful" });
     } else {
-      res.status(401).json({ error: "Invalid credentials" });
+      db.query(userSql, [username, password], (userErr, userResult) => {
+        if (userErr) {
+          console.error("Error logging in as user:", userErr);
+          res.status(500).json({ error: "Internal Server Error" });
+        } else if (userResult.length > 0) {
+          res.json({ message: "User login successful" });
+        } else {
+          res.status(401).json({ error: "Invalid credentials" });
+        }
+      });
     }
   });
 };

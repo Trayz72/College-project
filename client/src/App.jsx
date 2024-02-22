@@ -13,6 +13,8 @@ import Aboutus from "./UserComponent/Aboutus";
 import Login from "./UserComponent/Login";
 import Register from "./UserComponent/Register";
 import Home from "./UserComponent/Home";
+import AdminPage from "./AdminDashboard/AdminPage";
+import Locations from "./AdminDashboard/Locations";
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/" element={<Visitor />}></Route>
           <Route path="/aboutus" element={<Aboutus />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
+          <Route path="/admin" element={<AdminPage />}></Route>
+          <Route path="/location" element={<Locations />}></Route>
+          <Route path="/alladmins" element={<Admin />}></Route>
           <Route path="/create" element={<CreateAdmin />}></Route>
           <Route path="/update/:id" element={<UpdateAdmin />}></Route>
           <Route path="/state" element={<State />}></Route>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -17,7 +17,18 @@ const Login = () => {
       });
 
       console.log(response.data.message);
-      navigate("/home");
+
+      // Check if the login was successful and if it was an admin or user login
+      if (response.data.message === "Admin login successful") {
+        // Redirect to the admin page if it's an admin login
+        navigate("/admin");
+      } else if (response.data.message === "User login successful") {
+        // Redirect to the home page if it's a user login
+        navigate("/home");
+      } else {
+        // Handle other cases or show an error message
+        console.error("Unexpected login response:", response.data.message);
+      }
     } catch (error) {
       console.error("Error logging in:", error.response.data.error);
     }
@@ -53,14 +64,14 @@ const Login = () => {
             />
           </div>
           <div id="emailHelp" className="form-text">
-            Don't have an account? <a href="/register">Click here</a>
+            Don't have an account? <Link to="/register">Click here</Link>
           </div>
           <button type="submit" className="btn btn-primary my-3">
             Submit
           </button>
-          <a className="btn btn-primary" href="/" role="button">
+          <Link className="btn btn-primary" to="/" role="button">
             Back
-          </a>
+          </Link>
         </form>
       </div>
     </div>

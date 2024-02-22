@@ -1,41 +1,48 @@
-import { useState } from "react"
-import axios from 'axios'
-import {useNavigate} from "react-router-dom"
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import AdminNavbar from "../AdminDashboard/AdminNavbar";
+import LocTab from "../AdminDashboard/LocTab";
 
 export const CreateState = () => {
   const [values, setValue] = useState({
-    state_name: ""
-  })
+    state_name: "",
+  });
 
   function handleChange(event) {
-    setValue(prevValue => ({
+    setValue((prevValue) => ({
       ...prevValue,
-    [event.target.name]: event.target.value
-    }))
-  } 
+      [event.target.name]: event.target.value,
+    }));
+  }
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
-    event.preventDefault()
-    axios.post('http://localhost:3030/createState', values)
-    .then(res => navigate('/state'))
-    .catch(err => console.log(err))
+    event.preventDefault();
+    axios
+      .post("http://localhost:3030/createState", values)
+      .then((res) => navigate("/state"))
+      .catch((err) => console.log(err));
   }
-  
+
   return (
-    <div className="form-container">
-      <h2>Create state</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="stateName">State name</label>
-        <input
-         type="text" 
-         id="stateName"
-         onChange={handleChange}
-         name="state_name"
-        />
-        <button className="submit-btn">submit</button>
-      </form>
-    </div>
-  )
-}
+    <>
+      <AdminNavbar />
+      <LocTab />
+      <div className="form-container">
+        <h2>Create state</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="stateName">State name</label>
+          <input
+            type="text"
+            id="stateName"
+            onChange={handleChange}
+            name="state_name"
+          />
+          <button className="submit-btn">submit</button>
+        </form>
+      </div>
+    </>
+  );
+};

@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function AdminNavbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            Navbar
+          <Link className="navbar-brand" to="/admin">
+            Dashboard
           </Link>
           <button
             className="navbar-toggler"
@@ -23,7 +23,11 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/admin"
+                >
                   Home
                 </Link>
               </li>
@@ -31,18 +35,9 @@ export default function Navbar() {
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  to="/aboutus"
+                  to="/location"
                 >
-                  About Us
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/login"
-                >
-                  Login/Registration
+                  Location
                 </Link>
               </li>
             </ul>
