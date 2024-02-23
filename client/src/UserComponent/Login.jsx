@@ -18,13 +18,16 @@ const Login = () => {
 
       console.log(response.data.message);
 
-      // Check if the login was successful and if it was an admin or user login
+      // Check if the login was successful and determine the user type
       if (response.data.message === "Admin login successful") {
         // Redirect to the admin page if it's an admin login
         navigate("/admin");
       } else if (response.data.message === "User login successful") {
         // Redirect to the home page if it's a user login
         navigate("/home");
+      } else if (response.data.message === "Worker login successful") {
+        // Redirect to the worker dashboard if it's a worker login
+        navigate("/workerDashboard");
       } else {
         // Handle other cases or show an error message
         console.error("Unexpected login response:", response.data.message);

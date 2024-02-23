@@ -25,22 +25,40 @@ exports.login = (req, res) => {
     "SELECT * FROM Admin_Table WHERE User_Name = ? AND Password = ?";
   const userSql =
     "SELECT * FROM User_Account WHERE Username = ? AND Password = ?";
+  const workerSql =
+    "SELECT * FROM Worker WHERE WorkerName = ? AND Password = ?";
 
   db.query(adminSql, [username, password], (adminErr, adminResult) => {
     if (adminErr) {
       console.error("Error logging in as admin:", adminErr);
       res.status(500).json({ error: "Internal Server Error" });
     } else if (adminResult.length > 0) {
-      res.json({ message: "Admin login successful" });
+      res.json({ message: "Admin login successful", userType: "admin" });
     } else {
       db.query(userSql, [username, password], (userErr, userResult) => {
         if (userErr) {
           console.error("Error logging in as user:", userErr);
           res.status(500).json({ error: "Internal Server Error" });
         } else if (userResult.length > 0) {
-          res.json({ message: "User login successful" });
+          res.json({ message: "User login successful", userType: "user" });
         } else {
-          res.status(401).json({ error: "Invalid credentials" });
+          db.query(
+            workerSql,
+            [username, password],
+            (workerErr, workerResult) => {
+              if (workerErr) {
+                console.error("Error logging in as worker:", workerErr);
+                res.status(500).json({ error: "Internal Server Error" });
+              } else if (workerResult.length > 0) {
+                res.json({
+                  message: "Worker login successful",
+                  userType: "worker",
+                });
+              } else {
+                res.status(401).json({ error: "Invalid credentials" });
+              }
+            }
+          );
         }
       });
     }

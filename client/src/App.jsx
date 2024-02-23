@@ -15,6 +15,20 @@ import Register from "./UserComponent/Register";
 import Home from "./UserComponent/Home";
 import AdminPage from "./AdminDashboard/AdminPage";
 import Locations from "./AdminDashboard/Locations";
+import { CreateArea } from "./Component/CreateArea";
+import { Area } from "./Component/Area";
+import { AreaUpdate } from "./Component/AreaUpdate";
+import { CreateProductType } from "./Component/CreateProductType";
+import { ProductType } from "./Component/ProductType";
+import { ProductTypeUpdate } from "./Component/ProductTypeUpdate";
+import { CreateProductCategory } from "./Component/CreateProductCategory";
+import { ProductCategory } from "./Component/ProductCategory";
+import { ProductCategoryUpdate } from "./Component/ProductCategoryUpdate";
+import { CreateProductWeight } from "./Component/CreateProductWeight";
+import { ProductWeight } from "./Component/ProductWeight";
+import { ProductWeightUpdate } from "./Component/ProductWeightUpdate";
+import Product from "./AdminDashboard/Product";
+import WrokerDashboard from "./UserComponent/WrokerDashboard";
 
 function App() {
   return (
@@ -37,6 +51,41 @@ function App() {
           <Route path="/city" element={<City />}></Route>
           <Route path="/createCity" element={<CreateCity />}></Route>
           <Route path="/CityUpdate/:id" element={<CityUpdate />}></Route>
+          <Route path="/area" element={<Area />}></Route>
+          <Route path="/createArea" element={<CreateArea />}></Route>
+          <Route path="/AreaUpdate/:id" element={<AreaUpdate />}></Route>
+
+          <Route
+            path="/createProductType"
+            element={<CreateProductType />}
+          ></Route>
+          <Route path="/productType" element={<ProductType />}></Route>
+          <Route
+            path="/productTypeUpdate/:id"
+            element={<ProductTypeUpdate />}
+          ></Route>
+
+          <Route
+            path="/createProductCategory"
+            element={<CreateProductCategory />}
+          ></Route>
+          <Route path="/productCategory" element={<ProductCategory />}></Route>
+          <Route
+            path="/productCategoryUpdate/:id"
+            element={<ProductCategoryUpdate />}
+          ></Route>
+
+          <Route
+            path="/createProductWeight"
+            element={<CreateProductWeight />}
+          ></Route>
+          <Route path="/productWeight" element={<ProductWeight />}></Route>
+          <Route
+            path="/productWeightUpdate/:id"
+            element={<ProductWeightUpdate />}
+          ></Route>
+          <Route path="/products" element={<Product />}></Route>
+          <Route path="/workerDashboard" element={<WrokerDashboard />}></Route>
         </Routes>
       </BrowserRouter>
     </>
