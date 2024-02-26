@@ -1,41 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
+  const [response, setResponse] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3030/login", {
+      const loginResponse = await axios.post("http://localhost:3030/login", {
         username,
         password,
       });
 
-      console.log(response.data.message);
+      setResponse(loginResponse); // Update the response state
 
-      // Check if the login was successful and determine the user type
-      if (response.data.message === "Admin login successful") {
-        // Redirect to the admin page if it's an admin login
-        navigate("/admin");
-      } else if (response.data.message === "User login successful") {
-        // Redirect to the home page if it's a user login
-        navigate("/home");
-      } else if (response.data.message === "Worker login successful") {
-        // Redirect to the worker dashboard if it's a worker login
-        navigate("/workerDashboard");
-      } else {
-        // Handle other cases or show an error message
-        console.error("Unexpected login response:", response.data.message);
+      console.log(loginResponse.data.message);
+
+      if (loginResponse.data.message.includes("login successful")) {
+        // setUserId(loginResponse.data.userId);
+        setUserId(loginResponse.data.userId);
+
+        // Set the response in the state
+        setResponse(loginResponse);
+
+        if (loginResponse.data.message.includes("Admin")) {
+          navigate("/admin");
+        } else if (loginResponse.data.message.includes("User")) {
+          navigate(`/home/${loginResponse.data.userId}`);
+        } else if (loginResponse.data.message.includes("Worker")) {
+          navigate("/workerDashboard");
+        } else {
+          console.error(
+            "Unexpected login response:",
+            loginResponse.data.message
+          );
+        }
       }
     } catch (error) {
       console.error("Error logging in:", error.response.data.error);
     }
   };
+
+  useEffect(() => {
+    // This will log the updated userId after it's set
+    if (response && response.data && response.data.userId) {
+      console.log("userId:", response.data.userId);
+    }
+  }, [response]);
 
   return (
     <div className="login-container">

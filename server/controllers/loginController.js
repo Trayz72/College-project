@@ -33,14 +33,26 @@ exports.login = (req, res) => {
       console.error("Error logging in as admin:", adminErr);
       res.status(500).json({ error: "Internal Server Error" });
     } else if (adminResult.length > 0) {
-      res.json({ message: "Admin login successful", userType: "admin" });
+      // Admin login successful
+      const { Admin_Id } = adminResult[0];
+      res.json({
+        message: "Admin login successful",
+        userType: "admin",
+        userId: Admin_Id,
+      });
     } else {
       db.query(userSql, [username, password], (userErr, userResult) => {
         if (userErr) {
           console.error("Error logging in as user:", userErr);
           res.status(500).json({ error: "Internal Server Error" });
         } else if (userResult.length > 0) {
-          res.json({ message: "User login successful", userType: "user" });
+          // User login successful
+          const { UserId } = userResult[0];
+          res.json({
+            message: "User login successful",
+            userType: "user",
+            userId: UserId,
+          });
         } else {
           db.query(
             workerSql,
@@ -50,9 +62,12 @@ exports.login = (req, res) => {
                 console.error("Error logging in as worker:", workerErr);
                 res.status(500).json({ error: "Internal Server Error" });
               } else if (workerResult.length > 0) {
+                // Worker login successful
+                const { WorkerID } = workerResult[0];
                 res.json({
                   message: "Worker login successful",
                   userType: "worker",
+                  userId: WorkerID,
                 });
               } else {
                 res.status(401).json({ error: "Invalid credentials" });

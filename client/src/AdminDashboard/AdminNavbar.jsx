@@ -49,6 +49,15 @@ export default function AdminNavbar() {
                   Product
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/services"
+                >
+                  Service
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

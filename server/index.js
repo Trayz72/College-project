@@ -8,6 +8,7 @@ const areaController = require("./controllers/areaController");
 const pTypeController = require("./controllers/pTypeController");
 const pCategoryController = require("./controllers/pCategoryController");
 const pWeightController = require("./controllers/pWeightController");
+const servicesController = require("./controllers/serviceController");
 
 const app = express();
 app.use(express.json());
@@ -71,6 +72,12 @@ app.get(
   "/getProductWeightRecord/:id",
   pWeightController.getProductWeightRecord
 );
+
+//service-category rout
+app.get("/services", servicesController.getServices);
+app.post("/services", servicesController.addService);
+app.put("/services/:id", servicesController.updateService);
+app.delete("/services/:id", servicesController.deleteService);
 
 app.post("/login", loginController.login);
 app.post("/register", loginController.register);

@@ -29,13 +29,16 @@ import { ProductWeight } from "./Component/ProductWeight";
 import { ProductWeightUpdate } from "./Component/ProductWeightUpdate";
 import Product from "./AdminDashboard/Product";
 import WrokerDashboard from "./UserComponent/WrokerDashboard";
+import Service from "./Component/Services";
+import AddService from "./Component/AddService";
+import UpdateService from "./Component/UpdateService";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Home />}></Route>
+          <Route path="/home/:userId" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/" element={<Visitor />}></Route>
@@ -54,7 +57,9 @@ function App() {
           <Route path="/area" element={<Area />}></Route>
           <Route path="/createArea" element={<CreateArea />}></Route>
           <Route path="/AreaUpdate/:id" element={<AreaUpdate />}></Route>
-
+          <Route path="/services" element={<Service />}></Route>
+          <Route path="/AddService" element={<AddService />}></Route>
+          <Route path="/UpdateService/:id" element={<UpdateService />}></Route>
           <Route
             path="/createProductType"
             element={<CreateProductType />}
