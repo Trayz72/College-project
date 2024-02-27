@@ -9,6 +9,7 @@ const pTypeController = require("./controllers/pTypeController");
 const pCategoryController = require("./controllers/pCategoryController");
 const pWeightController = require("./controllers/pWeightController");
 const servicesController = require("./controllers/serviceController");
+const rentableItemController = require("./controllers/rentableItemController");
 
 const app = express();
 app.use(express.json());
@@ -73,11 +74,17 @@ app.get(
   pWeightController.getProductWeightRecord
 );
 
-//service-category rout
+//service-category route
 app.get("/services", servicesController.getServices);
 app.post("/services", servicesController.addService);
 app.put("/services/:id", servicesController.updateService);
 app.delete("/services/:id", servicesController.deleteService);
+
+//rent-item route
+app.post("/rentableItems", rentableItemController.createRentItem);
+app.get("/rentableItems", rentableItemController.getAllRentItems);
+app.put("/rentableItems/:id", rentableItemController.updateRentItem);
+app.delete("/rentableItems/:id", rentableItemController.deleteRentItem);
 
 app.post("/login", loginController.login);
 app.post("/register", loginController.register);

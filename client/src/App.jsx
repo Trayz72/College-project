@@ -32,6 +32,9 @@ import WrokerDashboard from "./UserComponent/WrokerDashboard";
 import Service from "./Component/Services";
 import AddService from "./Component/AddService";
 import UpdateService from "./Component/UpdateService";
+import RentableItem from "./Component/RentableItem";
+import UpdateRentableItem from "./Component/UpdateRentableItem";
+import CreateRentableItem from "./Component/CreateRentableItem";
 
 function App() {
   return (
@@ -60,6 +63,15 @@ function App() {
           <Route path="/services" element={<Service />}></Route>
           <Route path="/AddService" element={<AddService />}></Route>
           <Route path="/UpdateService/:id" element={<UpdateService />}></Route>
+          <Route path="/rentableItems" element={<RentableItem />}></Route>
+          <Route
+            path="/UpdateRentableItem/:id"
+            element={<UpdateRentableItem />}
+          ></Route>
+          <Route
+            path="/CreateRentableItem"
+            element={<CreateRentableItem />}
+          ></Route>
           <Route
             path="/createProductType"
             element={<CreateProductType />}
