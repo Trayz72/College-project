@@ -26,28 +26,12 @@ exports.createRentRequest = (req, res) => {
 };
 
 exports.getAllRentRequestsFormUser = (req, res) => {
-  // const { userId } = req.query; // Use req.query instead of req.body for GET requests
-  // console.log("Received userId in backend:", userId);
-
-  // db.query(
-  //   "SELECT * FROM RentRequest WHERE UserId = ?",
-  //   [userId],
-  //   (err, results) => {
-  //     if (err) {
-  //       console.error("Error fetching RentRequests:", err);
-  //       res.status(500).json({ error: "Internal Server Error" });
-  //     } else {
-  //       console.log("Rent requests fetched successfully:", results);
-  //       res.status(200).json(results);
-  //     }
-  //   }
-  // );
-
+  const { userId } = req.query;
   const query = `SELECT RentRequest.RequestId, RentRequest.RequiredHours, RentRequest.DateTime, RentableItem.ItemName,
   RentRequest.TotalCost,
   RentRequest.Status FROM RentRequest
-  JOIN RentableItem ON RentRequest.ItemId = RentableItem.ItemId;`;
-  db.query(query, (err, results) => {
+  JOIN RentableItem ON RentRequest.ItemId = RentableItem.ItemId WHERE UserId = ?;`;
+  db.query(query, [userId], (err, results) => {
     if (err) {
       console.error("Error fetching RentRequests:", err);
       res.status(500).json({ error: "Internal Server Error" });

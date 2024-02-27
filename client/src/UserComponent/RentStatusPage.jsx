@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Rent.css"; // Import a CSS file for styling
+import "./Rent.css";
 
 export default function RentStatusPage({ userId }) {
   const [rentRequests, setRentRequests] = useState([]);
@@ -11,7 +11,7 @@ export default function RentStatusPage({ userId }) {
     axios
       .get("http://localhost:3030/getAllRentRequestsFromUser", {
         params: {
-          userId: userId, // Ensure userId is defined here
+          userId: userId,
         },
       })
       .then((response) => {

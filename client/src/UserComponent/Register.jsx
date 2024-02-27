@@ -11,16 +11,6 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (!contactNo || !contactNo.trim()) {
-    //   console.error("Contact number cannot be empty");
-    //   return;
-    // }
-    // console.log("Registration request values:", {
-    //   username,
-    //   password,
-    //   email,
-    //   contactNumber,
-    // });
 
     try {
       const response = await axios.post("http://localhost:3030/register", {

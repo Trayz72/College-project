@@ -18,15 +18,13 @@ const Login = () => {
         password,
       });
 
-      setResponse(loginResponse); // Update the response state
+      setResponse(loginResponse);
 
       console.log(loginResponse.data.message);
 
       if (loginResponse.data.message.includes("login successful")) {
-        // setUserId(loginResponse.data.userId);
         setUserId(loginResponse.data.userId);
 
-        // Set the response in the state
         setResponse(loginResponse);
 
         if (loginResponse.data.message.includes("Admin")) {
@@ -48,7 +46,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    // This will log the updated userId after it's set
     if (response && response.data && response.data.userId) {
       console.log("userId:", response.data.userId);
     }
