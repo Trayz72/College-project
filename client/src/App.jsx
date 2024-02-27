@@ -9,7 +9,7 @@ import { CreateCity } from "./Component/CreateCity";
 import { City } from "./Component/City";
 import { CityUpdate } from "./Component/CityUpdate";
 import Visitor from "./UserComponent/Visitor";
-import Aboutus from "./UserComponent/Aboutus";
+import About from "./UserComponent/About";
 import Login from "./UserComponent/Login";
 import Register from "./UserComponent/Register";
 import Home from "./UserComponent/Home";
@@ -35,17 +35,20 @@ import UpdateService from "./Component/UpdateService";
 import RentableItem from "./Component/RentableItem";
 import UpdateRentableItem from "./Component/UpdateRentableItem";
 import CreateRentableItem from "./Component/CreateRentableItem";
+import { RentReq } from "./Component/RentReq";
+import Rent from "./UserComponent/Rent";
+import RentStatusPage from "./UserComponent/RentStatusPage";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/home/:userId" element={<Home />}></Route>
+          <Route path="/home/:id" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/" element={<Visitor />}></Route>
-          <Route path="/aboutus" element={<Aboutus />}></Route>
+          <Route path="/about" element={<About />}></Route>
           <Route path="/admin" element={<AdminPage />}></Route>
           <Route path="/location" element={<Locations />}></Route>
           <Route path="/alladmins" element={<Admin />}></Route>
@@ -64,6 +67,9 @@ function App() {
           <Route path="/AddService" element={<AddService />}></Route>
           <Route path="/UpdateService/:id" element={<UpdateService />}></Route>
           <Route path="/rentableItems" element={<RentableItem />}></Route>
+          <Route path="/RentReq" element={<RentReq />}></Route>
+          <Route path="/Rent" element={<Rent />}></Route>
+          <Route path="/RentStatus" element={<RentStatusPage />}></Route>
           <Route
             path="/UpdateRentableItem/:id"
             element={<UpdateRentableItem />}

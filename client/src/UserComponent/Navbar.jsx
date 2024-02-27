@@ -31,7 +31,7 @@ export default function Navbar() {
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  to="/aboutus"
+                  to="/about"
                 >
                   About Us
                 </Link>

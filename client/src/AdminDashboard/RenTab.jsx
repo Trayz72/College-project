@@ -10,6 +10,11 @@ export default function RenTab() {
             All Items
           </Link>
         </li>
+        <li className="nav-item">
+          <Link className={`nav-link `} to="/RentReq">
+            Requests
+          </Link>
+        </li>
       </ul>
     </>
   );
