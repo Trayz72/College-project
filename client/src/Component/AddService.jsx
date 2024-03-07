@@ -10,10 +10,10 @@ const AddService = () => {
 
   // State to store form data
   const [formData, setFormData] = useState({
-    Service_Category_Name: "",
-    Service_Category_Description: "",
-    Cost_per_hour: 0,
-    Product_dimension: 0,
+    ServiceCategoryName: "",
+    ServiceCategoryDescription: "",
+    CostPerHour: 0,
+    ProductDimension: 0,
   });
 
   // Function to handle form input changes
@@ -54,8 +54,8 @@ const AddService = () => {
           <input
             type="text"
             id="serviceName"
-            name="Service_Category_Name"
-            value={formData.Service_Category_Name}
+            name="ServiceCategoryName"
+            value={formData.ServiceCategoryName}
             onChange={handleChange}
             required
           />
@@ -65,8 +65,8 @@ const AddService = () => {
           </label>
           <textarea
             id="serviceDescription"
-            name="Service_Category_Description"
-            value={formData.Service_Category_Description}
+            name="ServiceCategoryDescription"
+            value={formData.ServiceCategoryDescription}
             onChange={handleChange}
             required
           ></textarea>
@@ -75,8 +75,8 @@ const AddService = () => {
           <input
             type="number"
             id="costPerHour"
-            name="Cost_per_hour"
-            value={formData.Cost_per_hour}
+            name="CostPerHour"
+            value={formData.CostPerHour}
             onChange={handleChange}
             required
           />
@@ -85,8 +85,8 @@ const AddService = () => {
           <input
             type="number"
             id="productDimension"
-            name="Product_dimension"
-            value={formData.Product_dimension}
+            name="ProductDimension"
+            value={formData.ProductDimension}
             onChange={handleChange}
             required
           />

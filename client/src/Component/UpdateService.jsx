@@ -7,10 +7,10 @@ import SevTab from "../AdminDashboard/SevTab";
 const UpdateService = () => {
   // State to store form data
   const [formData, setFormData] = useState({
-    Service_Category_Name: "",
-    Service_Category_Description: "",
-    Cost_per_hour: "",
-    Product_dimension: "",
+    ServiceCategoryName: "",
+    ServiceCategoryDescription: "",
+    CostPerHour: "",
+    ProductDimension: "",
   });
 
   // ID parameter from the URL
@@ -65,8 +65,8 @@ const UpdateService = () => {
           <input
             type="text"
             id="serviceCategoryName"
-            name="Service_Category_Name"
-            value={formData.Service_Category_Name}
+            name="ServiceCategoryName"
+            value={formData.ServiceCategoryName}
             onChange={handleChange}
             required
           />
@@ -76,8 +76,8 @@ const UpdateService = () => {
           </label>
           <textarea
             id="serviceCategoryDescription"
-            name="Service_Category_Description"
-            value={formData.Service_Category_Description}
+            name="ServiceCategoryDescription"
+            value={formData.ServiceCategoryDescription}
             onChange={handleChange}
             required
           ></textarea>
@@ -86,8 +86,8 @@ const UpdateService = () => {
           <input
             type="number"
             id="costPerHour"
-            name="Cost_per_hour"
-            value={formData.Cost_per_hour}
+            name="CostPerHour"
+            value={formData.CostPerHour}
             onChange={handleChange}
             required
           />
@@ -96,8 +96,8 @@ const UpdateService = () => {
           <input
             type="text"
             id="productDimension"
-            name="Product_dimension"
-            value={formData.Product_dimension}
+            name="ProductDimension"
+            value={formData.ProductDimension}
             onChange={handleChange}
             required
           />

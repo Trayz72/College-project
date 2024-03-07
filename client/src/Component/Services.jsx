@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import AdminNavbar from "../AdminDashboard/AdminNavbar";
-import LocTab from "../AdminDashboard/LocTab";
 import SevTab from "../AdminDashboard/SevTab";
 
 const Service = () => {
@@ -16,14 +15,14 @@ const Service = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  const handleDelete = (Service_Category_Id) => {
+  const handleDelete = (ServiceCategoryId) => {
     axios
-      .delete(`http://localhost:3030/services/${Service_Category_Id}`)
+      .delete(`http://localhost:3030/services/${ServiceCategoryId}`)
       .then(() => {
         // Remove the deleted service from the state
         setServices((prevServices) =>
           prevServices.filter(
-            (service) => service.Service_Category_Id !== Service_Category_Id
+            (service) => service.ServiceCategoryId !== ServiceCategoryId
           )
         );
       })
@@ -67,18 +66,18 @@ const Service = () => {
           </thead>
           <tbody>
             {services.map((service) => (
-              <tr key={service.Service_Category_Id}>
-                <td>{service.Service_Category_Name}</td>
+              <tr key={service.ServiceCategoryId}>
+                <td>{service.ServiceCategoryName}</td>
                 <td className="action-buttons">
                   <Link
                     className="link"
-                    to={`/UpdateService/${service.Service_Category_Id}`}
+                    to={`/UpdateService/${service.ServiceCategoryId}`}
                   >
                     Update
                   </Link>
                   <button
                     className="delete-btn"
-                    onClick={() => handleDelete(service.Service_Category_Id)}
+                    onClick={() => handleDelete(service.ServiceCategoryId)}
                   >
                     Delete
                   </button>

@@ -3,7 +3,7 @@ const db = require("../db");
 
 // List all services
 const getServices = (req, res) => {
-  db.query("SELECT * FROM service_category_table", (err, results) => {
+  db.query("SELECT * FROM ServiceCategory", (err, results) => {
     if (err) {
       console.error("Error fetching services:", err);
       res.status(500).json({ error: "Internal Server Error" });
@@ -16,25 +16,25 @@ const getServices = (req, res) => {
 // Add a new service category
 const addService = (req, res) => {
   const {
-    Service_Category_Name,
-    Service_Category_Description,
-    Cost_per_hour,
-    Product_dimension,
+    ServiceCategoryName,
+    ServiceCategoryDescription,
+    CostPerHour,
+    ProductDimension,
   } = req.body;
 
   const query = `
-    INSERT INTO service_category_table 
-    (Service_Category_Name, Service_Category_Description, Cost_per_hour, Product_dimension)
+    INSERT INTO ServiceCategory 
+    (ServiceCategoryName, ServiceCategoryDescription, CostPerHour, ProductDimension)
     VALUES (?, ?, ?, ?)
   `;
 
   db.query(
     query,
     [
-      Service_Category_Name,
-      Service_Category_Description,
-      Cost_per_hour,
-      Product_dimension,
+      ServiceCategoryName,
+      ServiceCategoryDescription,
+      CostPerHour,
+      ProductDimension,
     ],
     (err, result) => {
       if (err) {
@@ -54,25 +54,25 @@ const addService = (req, res) => {
 const updateService = (req, res) => {
   const Service_Category_Id = req.params.id;
   const {
-    Service_Category_Name,
-    Service_Category_Description,
-    Cost_per_hour,
-    Product_dimension,
+    ServiceCategoryName,
+    ServiceCategoryDescription,
+    CostPerHour,
+    ProductDimension,
   } = req.body;
 
   const query = `
-    UPDATE service_category_table
-    SET Service_Category_Name=?, Service_Category_Description=?, Cost_per_hour=?, Product_dimension=?
+    UPDATE ServiceCategory
+    SET ServiceCategoryName=?, ServiceCategoryDescription=?, CostPerHour=?, ProductDimension=?
     WHERE Service_Category_Id=?
   `;
 
   db.query(
     query,
     [
-      Service_Category_Name,
-      Service_Category_Description,
-      Cost_per_hour,
-      Product_dimension,
+      ServiceCategoryName,
+      ServiceCategoryDescription,
+      CostPerHour,
+      ProductDimension,
       Service_Category_Id,
     ],
     (err, result) => {
@@ -90,8 +90,7 @@ const updateService = (req, res) => {
 const deleteService = (req, res) => {
   const Service_Category_Id = req.params.id;
 
-  const query =
-    "DELETE FROM service_category_table WHERE Service_Category_Id=?";
+  const query = "DELETE FROM ServiceCategory WHERE Service_Category_Id=?";
 
   db.query(query, [Service_Category_Id], (err, result) => {
     if (err) {
