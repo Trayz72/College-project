@@ -56,7 +56,7 @@ exports.updateCity = (req, res) => {
 exports.getCitiesRecord = (req, res) => {
   const id = req.params.id;
   const sql = "SELECT * FROM City_Table WHERE City_Id = ?";
-  // console.log(id);
+
   db.query(sql, [id], (err, data) => {
     if (err) {
       res.json({ Error: "Error" });

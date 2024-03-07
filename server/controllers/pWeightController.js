@@ -30,7 +30,7 @@ exports.getAllProductWeight = (req, res) => {
 exports.deleteProductWeight = (req, res) => {
   const sql = "DELETE FROM product_weight_table WHERE Product_Weight_Id = ?";
   const id = req.params.id;
-  // console.log(id);
+
   db.query(sql, [id], (err, data) => {
     if (err) {
       res.json({ Error: "Error" });

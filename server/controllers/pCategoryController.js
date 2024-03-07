@@ -32,7 +32,7 @@ exports.deleteProductCategory = (req, res) => {
   const sql =
     "DELETE FROM product_category_table WHERE Product_Category_Id = ?";
   const id = req.params.id;
-  // console.log(id);
+
   db.query(sql, [id], (err, data) => {
     if (err) {
       res.json({ Error: "Error" });

@@ -57,7 +57,6 @@ exports.getAreas = (req, res) => {
 exports.getAreasRecord = (req, res) => {
   const id = req.params.id;
   const sql = "SELECT * FROM Area_Table WHERE Pincode = ?";
-  // console.log(id);
   db.query(sql, [id], (err, data) => {
     if (err) {
       res.json({ Error: "Error" });

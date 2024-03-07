@@ -12,7 +12,6 @@ exports.register = (req, res) => {
       console.error("Error registering user:", err);
       res.status(500).json({ error: "Internal Server Error" });
     } else {
-      console.log("User registered successfully");
       res.json({ message: "User registered successfully" });
     }
   });

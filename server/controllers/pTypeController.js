@@ -30,7 +30,6 @@ exports.getAllProductType = (req, res) => {
 exports.deleteProductType = (req, res) => {
   const sql = "DELETE FROM ProductType WHERE Product_Type_Id = ?";
   const id = req.params.id;
-  // console.log(id);
   db.query(sql, [id], (err, data) => {
     if (err) {
       res.json({ Error: "Error" });

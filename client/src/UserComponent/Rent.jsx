@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { logContext } from "../Context";
 
-export default function Rent({ userId }) {
+export default function Rent() {
+  const { userId } = useContext(logContext);
   const [formData, setFormData] = useState({
-    RequiredHours: 0,
+    RequiredHours: "", // Set default values or leave them empty based on your needs
     DateTime: "",
     ItemId: "",
   });
@@ -25,6 +27,10 @@ export default function Rent({ userId }) {
   };
 
   const calculateTotalCost = () => {
+    if (!formData.ItemId) {
+      return 0;
+    }
+
     const selectedItem = rentableItems.find(
       (item) => item.ItemName === formData.ItemId
     );
@@ -33,7 +39,6 @@ export default function Rent({ userId }) {
       ? selectedItem.Rent_per_hour * formData.RequiredHours
       : 0;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 

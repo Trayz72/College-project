@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Admin } from "./Component/Admin";
 import { CreateAdmin } from "./Component/CreateAdmin";
@@ -12,7 +13,6 @@ import Visitor from "./UserComponent/Visitor";
 import About from "./UserComponent/About";
 import Login from "./UserComponent/Login";
 import Register from "./UserComponent/Register";
-import Home from "./UserComponent/Home";
 import AdminPage from "./AdminDashboard/AdminPage";
 import Locations from "./AdminDashboard/Locations";
 import { CreateArea } from "./Component/CreateArea";
@@ -38,80 +38,67 @@ import CreateRentableItem from "./Component/CreateRentableItem";
 import { RentReq } from "./Component/RentReq";
 import Rent from "./UserComponent/Rent";
 import RentStatusPage from "./UserComponent/RentStatusPage";
+import Home from "./UserComponent/Home";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/home/:id" element={<Home />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/" element={<Visitor />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/admin" element={<AdminPage />}></Route>
-          <Route path="/location" element={<Locations />}></Route>
-          <Route path="/alladmins" element={<Admin />}></Route>
-          <Route path="/create" element={<CreateAdmin />}></Route>
-          <Route path="/update/:id" element={<UpdateAdmin />}></Route>
-          <Route path="/state" element={<State />}></Route>
-          <Route path="/createState" element={<CreateState />}></Route>
-          <Route path="/updateState/:id" element={<UpdateState />}></Route>
-          <Route path="/city" element={<City />}></Route>
-          <Route path="/createCity" element={<CreateCity />}></Route>
-          <Route path="/CityUpdate/:id" element={<CityUpdate />}></Route>
-          <Route path="/area" element={<Area />}></Route>
-          <Route path="/createArea" element={<CreateArea />}></Route>
-          <Route path="/AreaUpdate/:id" element={<AreaUpdate />}></Route>
-          <Route path="/services" element={<Service />}></Route>
-          <Route path="/AddService" element={<AddService />}></Route>
-          <Route path="/UpdateService/:id" element={<UpdateService />}></Route>
-          <Route path="/rentableItems" element={<RentableItem />}></Route>
-          <Route path="/RentReq" element={<RentReq />}></Route>
-          <Route path="/Rent" element={<Rent />}></Route>
-          <Route path="/RentStatus" element={<RentStatusPage />}></Route>
-          <Route
-            path="/UpdateRentableItem/:id"
-            element={<UpdateRentableItem />}
-          ></Route>
-          <Route
-            path="/CreateRentableItem"
-            element={<CreateRentableItem />}
-          ></Route>
-          <Route
-            path="/createProductType"
-            element={<CreateProductType />}
-          ></Route>
-          <Route path="/productType" element={<ProductType />}></Route>
-          <Route
-            path="/productTypeUpdate/:id"
-            element={<ProductTypeUpdate />}
-          ></Route>
-
-          <Route
-            path="/createProductCategory"
-            element={<CreateProductCategory />}
-          ></Route>
-          <Route path="/productCategory" element={<ProductCategory />}></Route>
-          <Route
-            path="/productCategoryUpdate/:id"
-            element={<ProductCategoryUpdate />}
-          ></Route>
-
-          <Route
-            path="/createProductWeight"
-            element={<CreateProductWeight />}
-          ></Route>
-          <Route path="/productWeight" element={<ProductWeight />}></Route>
-          <Route
-            path="/productWeightUpdate/:id"
-            element={<ProductWeightUpdate />}
-          ></Route>
-          <Route path="/products" element={<Product />}></Route>
-          <Route path="/workerDashboard" element={<WrokerDashboard />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home/:id/*" element={<Home />}>
+          <Route path="rent" element={<Rent />} />
+          <Route path="rentStatus" element={<RentStatusPage />} />
+          {/* Add other nested routes here... */}
+        </Route>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Visitor />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/location" element={<Locations />} />
+        <Route path="/alladmins" element={<Admin />} />
+        <Route path="/create" element={<CreateAdmin />} />
+        <Route path="/update/:id" element={<UpdateAdmin />} />
+        <Route path="/state" element={<State />} />
+        <Route path="/createState" element={<CreateState />} />
+        <Route path="/updateState/:id" element={<UpdateState />} />
+        <Route path="/city" element={<City />} />
+        <Route path="/createCity" element={<CreateCity />} />
+        <Route path="/CityUpdate/:id" element={<CityUpdate />} />
+        <Route path="/area" element={<Area />} />
+        <Route path="/createArea" element={<CreateArea />} />
+        <Route path="/AreaUpdate/:id" element={<AreaUpdate />} />
+        <Route path="/services" element={<Service />} />
+        <Route path="/AddService" element={<AddService />} />
+        <Route path="/UpdateService/:id" element={<UpdateService />} />
+        <Route path="/rentableItems" element={<RentableItem />} />
+        <Route path="/RentReq" element={<RentReq />} />
+        <Route
+          path="/UpdateRentableItem/:id"
+          element={<UpdateRentableItem />}
+        />
+        <Route path="/CreateRentableItem" element={<CreateRentableItem />} />
+        <Route path="/createProductType" element={<CreateProductType />} />
+        <Route path="/productType" element={<ProductType />} />
+        <Route path="/productTypeUpdate/:id" element={<ProductTypeUpdate />} />
+        <Route
+          path="/createProductCategory"
+          element={<CreateProductCategory />}
+        />
+        <Route path="/productCategory" element={<ProductCategory />} />
+        <Route
+          path="/productCategoryUpdate/:id"
+          element={<ProductCategoryUpdate />}
+        />
+        <Route path="/createProductWeight" element={<CreateProductWeight />} />
+        <Route path="/productWeight" element={<ProductWeight />} />
+        <Route
+          path="/productWeightUpdate/:id"
+          element={<ProductWeightUpdate />}
+        />
+        <Route path="/products" element={<Product />} />
+        <Route path="/workerDashboard" element={<WrokerDashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
