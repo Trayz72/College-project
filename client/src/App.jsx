@@ -42,12 +42,14 @@ import Home from "./UserComponent/Home";
 import { ServiceRequestAdmin } from "./Component/ServiceRequestAdmin";
 import ServiceRequestForm from "./UserComponent/ServiceRequestForm";
 import ServiceStatus from "./UserComponent/ServiceStatus";
+import ProductList from "./UserComponent/Pages/ProductList";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/home/:id/*" element={<Home />}>
+          <Route path="" element={<ProductList />} />
           <Route path="rent" element={<Rent />} />
           <Route path="rentStatus" element={<RentStatusPage />} />
           {/* Add other nested routes here... */}

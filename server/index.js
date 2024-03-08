@@ -12,10 +12,12 @@ const servicesController = require("./controllers/serviceController");
 const rentableItemController = require("./controllers/rentableItemController");
 const rentReqController = require("./controllers/rentReqController");
 const serviceRequestController = require("./controllers/serviceRequestController");
+const productListController = require("./controllers/productListController");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.static("Public"));
 
 app.get("/alladmins", adminController.getAllAdmins);
 app.post("/create", adminController.createAdmin);
@@ -114,6 +116,8 @@ app.delete("/deleteRentRequest/:id", rentReqController.deleteRentRequest);
 
 app.post("/login", loginController.login);
 app.post("/register", loginController.register);
+
+app.get("/productList", productListController.ProductList);
 
 app.listen(3030, () => {
   console.log("Running");

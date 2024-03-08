@@ -1,0 +1,29 @@
+/* ProductList.css */
+
+.product-list-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-card {
+  width: 48%;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  text-align: center;
+}

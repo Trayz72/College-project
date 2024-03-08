@@ -6,6 +6,7 @@ import NavBar from "./Nav";
 import { logContext } from "../Context";
 import ServiceRequestForm from "./ServiceRequestForm";
 import ServiceStatus from "./ServiceStatus";
+import ProductList from "./Pages/ProductList";
 
 function Home() {
   const { id } = useParams();
@@ -25,9 +26,11 @@ function Home() {
     <>
       <logContext.Provider value={{ userId, setUserId, logout }}>
         <NavBar />
+        {/* <ProductList /> */}
         {/* Use nested Routes */}
         <Routes>
           {/* Use the `element` prop to specify the component for rendering */}
+          <Route path="/" element={<ProductList />} />
           <Route path="/rent" element={<Rent />} />
           <Route path="/rentStatus" element={<RentStatusPage />} />
           <Route path="/serviceForm" element={<ServiceRequestForm />} />
