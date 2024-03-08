@@ -40,6 +40,16 @@ const Nav = () => {
                 Rent Status
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="serviceForm">
+                Service
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="serviceStatus">
+                Service Status
+              </Link>
+            </li>
           </ul>
           <form className="d-flex" role="search">
             <button

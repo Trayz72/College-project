@@ -39,6 +39,9 @@ import { RentReq } from "./Component/RentReq";
 import Rent from "./UserComponent/Rent";
 import RentStatusPage from "./UserComponent/RentStatusPage";
 import Home from "./UserComponent/Home";
+import { ServiceRequestAdmin } from "./Component/ServiceRequestAdmin";
+import ServiceRequestForm from "./UserComponent/ServiceRequestForm";
+import ServiceStatus from "./UserComponent/ServiceStatus";
 
 function App() {
   return (
@@ -48,6 +51,8 @@ function App() {
           <Route path="rent" element={<Rent />} />
           <Route path="rentStatus" element={<RentStatusPage />} />
           {/* Add other nested routes here... */}
+          <Route path="serviceForm" element={<ServiceRequestForm />} />
+          <Route path="serviceStatus" element={<ServiceStatus />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -97,6 +102,7 @@ function App() {
         />
         <Route path="/products" element={<Product />} />
         <Route path="/workerDashboard" element={<WrokerDashboard />} />
+        <Route path="/serviceReqs" element={<ServiceRequestAdmin />} />
       </Routes>
     </BrowserRouter>
   );

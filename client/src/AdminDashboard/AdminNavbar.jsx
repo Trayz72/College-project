@@ -1,7 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AdminNavbar() {
+  const navigate = useNavigate();
+  const logout = () => {
+    navigate("/");
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -68,6 +72,15 @@ export default function AdminNavbar() {
                 </Link>
               </li>
             </ul>
+            <form className="d-flex" role="search">
+              <button
+                className="btn btn-outline-success"
+                onClick={logout}
+                type="button"
+              >
+                Logout
+              </button>
+            </form>
           </div>
         </div>
       </nav>

@@ -11,6 +11,7 @@ const pWeightController = require("./controllers/pWeightController");
 const servicesController = require("./controllers/serviceController");
 const rentableItemController = require("./controllers/rentableItemController");
 const rentReqController = require("./controllers/rentReqController");
+const serviceRequestController = require("./controllers/serviceRequestController");
 
 const app = express();
 app.use(express.json());
@@ -80,6 +81,19 @@ app.get("/services", servicesController.getServices);
 app.post("/services", servicesController.addService);
 app.put("/services/:id", servicesController.updateService);
 app.delete("/services/:id", servicesController.deleteService);
+
+//service-request route
+app.get("/serviceRequests", serviceRequestController.getAllServiceRequests);
+app.post(
+  "/createServiceRequest",
+  serviceRequestController.createServiceRequest
+);
+app.put("/updateStatus/:id", serviceRequestController.updateStatus);
+app.delete("/deleteRequest/:id", serviceRequestController.deleteRequest);
+app.get(
+  "/getAllServiceRequestsFromUser",
+  serviceRequestController.getAllServiceRequestsFormUser
+);
 
 //rent-item route
 app.post("/rentableItems", rentableItemController.createRentItem);

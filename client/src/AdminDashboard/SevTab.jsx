@@ -10,6 +10,11 @@ export default function SevTab() {
             Category
           </Link>
         </li>
+        <li className="nav-item">
+          <Link className={`nav-link `} to="/serviceReqs">
+            Service Request
+          </Link>
+        </li>
         {/* <li className="nav-item">
           <Link className={`nav-link `} to="/city">
             

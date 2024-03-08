@@ -4,6 +4,8 @@ import Rent from "./Rent";
 import RentStatusPage from "./RentStatusPage";
 import NavBar from "./Nav";
 import { logContext } from "../Context";
+import ServiceRequestForm from "./ServiceRequestForm";
+import ServiceStatus from "./ServiceStatus";
 
 function Home() {
   const { id } = useParams();
@@ -28,6 +30,8 @@ function Home() {
           {/* Use the `element` prop to specify the component for rendering */}
           <Route path="/rent" element={<Rent />} />
           <Route path="/rentStatus" element={<RentStatusPage />} />
+          <Route path="/serviceForm" element={<ServiceRequestForm />} />
+          <Route path="/serviceStatus" element={<ServiceStatus />} />
         </Routes>
       </logContext.Provider>
     </>
