@@ -61,6 +61,9 @@ const Service = () => {
           <thead>
             <tr>
               <th>Service Category Name</th>
+              <th>Description</th>
+              <th>CostPerHour</th>
+              <th>Product Dimension</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -68,6 +71,9 @@ const Service = () => {
             {services.map((service) => (
               <tr key={service.ServiceCategoryId}>
                 <td>{service.ServiceCategoryName}</td>
+                <td>{service.ServiceCategoryDescription}</td>
+                <td>{service.CostPerHour}</td>
+                <td>{service.ProductDimension}</td>
                 <td className="action-buttons">
                   <Link
                     className="link"
