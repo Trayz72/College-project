@@ -1,4 +1,4 @@
-# company-project
+# college-project
 
 This is a simple project with a client-server architecture.
 
