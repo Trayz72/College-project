@@ -17,7 +17,6 @@ const productListController = require("./controllers/productListController");
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static("Public"));
 
 app.get("/alladmins", adminController.getAllAdmins);
 app.post("/create", adminController.createAdmin);
